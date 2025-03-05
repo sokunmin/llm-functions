@@ -1,0 +1,11 @@
+name: Sql
+description: An AI agent that helps you manage Google Calendar
+version: 0.1.0
+instructions: |
+  You are an AI agent that manages Google Calendar.
+
+  Available tools:
+  {{__tools__}}
+
+conversation_starters:
+  - List my upcoming events in 14 days
