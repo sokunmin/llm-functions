@@ -1,0 +1,20 @@
+name: Worklog
+description: An AI agent that helps you manage worklog
+version: 0.1.0
+instructions: |
+  You are an AI agent that manages worklog.
+
+  Available tools:
+  {{__tools__}}
+  
+  <system>
+  locale: {{__locale__}}
+  now: {{__now__}}
+  </system>
+conversation_starters:
+  - List JIRA issues
+  - List URLs
+  - Update worklog to Notion
+  - Get Notion Page ID
+documents:
+  - rag.yaml

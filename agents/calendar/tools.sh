@@ -7,8 +7,8 @@ set -e
 # @env LLM_OUTPUT=/dev/stdout The output path
 
 # @cmd Get the list for upcoming calendar schedule
-# @option --days!   The number of days for the upcoming schedule
-list_schedules() {
+# @option --days!   The number of days for the upcoming schedule. Default: 0 (today)
+list_schedule() {
     _sanity_check
 
     TIME_MIN=$(date -u +"%Y-%m-%dT%H:%M:%SZ")

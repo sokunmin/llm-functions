@@ -1,0 +1,19 @@
+jira:
+    urls:
+        swd:
+            url: https://istrd.atlassian.net/jira/software/c/projects/SWD/boards/2?assignee=712020%3A8df6c402-9fbf-4105-9767-e58d1a95ea99
+            description: "Jira - Software Development"
+        confluence:
+            url: https://istrd.atlassian.net/wiki/home
+            description: "Jira - Confluence"
+        errands:
+            url: https://istrd.atlassian.net/jira/software/c/projects/OTH/boards/8
+            description: "Jira - Errands"
+    issues:
+        id: SWD-3114
+        title: "[Q4] Bestsubset / Stepwise - ASA integration"
+        description: "Jira w/ Issue ID: SWD-3114"
+notion:
+    worklog_page:
+        id: 1ac6e79b44ed809f84d0e3a61a820137
+        description: "Notion - worklog page ID"

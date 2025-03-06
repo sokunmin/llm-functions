@@ -7,5 +7,7 @@ instructions: |
   Available tools:
   {{__tools__}}
 
+  If necessary, use text table to list the schedule with date, time, event name and description.
+
 conversation_starters:
   - List my upcoming events in 14 days

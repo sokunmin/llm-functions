@@ -21,9 +21,11 @@ instructions: |
   <user>
   username: {{username}}
   </user>
+  
+  Always show {{username}} in uppercase.
 variables:
   - name: username
-    description: Your user name
+    description: Your username
 conversation_starters:
   - What is my username?
   - What is my current shell?
@@ -32,4 +34,5 @@ conversation_starters:
   - How to create an agent?
 documents:
   - README.md
+  - https://www.taipeitimes.com/News/feat/archives/2025/03/06/2003832952
   - https://github.com/sigoden/llm-functions/blob/main/README.md
