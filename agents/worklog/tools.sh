@@ -26,7 +26,7 @@ append_worklog() {
         -H "Notion-Version: 2022-06-28"
     )
 
-    # Create JSON structure with jq <button class="citation-flag" data-index="3">
+    # Create JSON structure with jq
     local blocks
     blocks=$(jq -n \
         --arg date "$argc_date" \
@@ -55,8 +55,8 @@ append_worklog() {
             }
         ]'
     )
-
-    # Prepare and send request <button class="citation-flag" data-index="4">
+    echo "body=$blocks"
+    # Prepare and send request
     local payload
     payload=$(jq -n --argjson children "$blocks" '{ children: $children }')
     local response
