@@ -12,7 +12,22 @@ list_schedule() {
     _sanity_check
 
     TIME_MIN=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
-    TIME_MAX=$(date -u -d "+$argc_days days" +"%Y-%m-%dT%H:%M:%SZ")
+     # Cross-platform compatible date command for future date
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        # macOS
+        TIME_MAX=$(date -u -v+${argc_days}d +"%Y-%m-%dT%H:%M:%SZ")
+    elif [[ "$OSTYPE" == "linux-gnu"* ]] || [[ "$OSTYPE" == "msys" ]] || [[ "$OSTYPE" == "cygwin" ]] || [[ "$OSTYPE" == "win32" ]]; then
+        # Linux or Windows with Git Bash or similar
+        TIME_MAX=$(date -u -d "+${argc_days} days" +"%Y-%m-%dT%H:%M:%SZ")
+    else
+        # Fallback method using GNU date if available
+        if command -v gdate >/dev/null 2>&1; then
+            TIME_MAX=$(gdate -u -d "+${argc_days} days" +"%Y-%m-%dT%H:%M:%SZ")
+        else
+            echo "Error: Unsupported platform for date calculation" >&2
+            exit 1
+        fi
+    fi
     # Get access token using refresh token <button class="citation-flag" data-index="9">
     ACCESS_TOKEN=$(curl -s -X POST \
       -H "Content-Type: application/x-www-form-urlencoded" \

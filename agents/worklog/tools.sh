@@ -22,7 +22,7 @@ append_worklog() {
     local endpoint="https://api.notion.com/v1/blocks/$argc_page_id/children"
     local headers=(
         -H "Authorization: Bearer $NOTION_API_TOKEN"
-        -H "Content-Type: application/json"
+        -H "Content-Type: application/json; charset=UTF-8"
         -H "Notion-Version: 2022-06-28"
     )
 
