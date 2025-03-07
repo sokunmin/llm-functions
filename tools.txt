@@ -6,4 +6,5 @@ fs_patch.sh
 fs_rm.sh
 fs_write.sh
 get_current_weather.sh
+get_current_time.sh
 demo_sh.sh

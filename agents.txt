@@ -2,4 +2,5 @@ todo
 demo
 docker
 calendar
-worklog
+notion
+jira

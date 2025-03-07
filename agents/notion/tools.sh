@@ -11,14 +11,12 @@ set -e
 # @option --page-id! <STRING> The Notion page id (32 ASCII characters)
 # @option --date! <STRING> The date of worklog in YYYY/mm/DD format
 # @option --worklog+ <STRING> The string array of worklog entries
-append_worklog() {
+add_worklog() {
+    _sanity_check
+
     # Construct the Notion API request body
     local worklog_content
     worklog_content=$(printf "%s\n" "${argc_worklog[@]}")
-    echo "Key=$NOTION_API_TOKEN"
-    echo "PageId=$argc_page_id"
-    echo "Date=$argc_date"
-    echo "Worklog=$worklog_content"
     local endpoint="https://api.notion.com/v1/blocks/$argc_page_id/children"
     local headers=(
         -H "Authorization: Bearer $NOTION_API_TOKEN"
@@ -64,16 +62,16 @@ append_worklog() {
 
     # Check response
     if [[ "$response" == *"\"object\":\"error\""* ]]; then
-        echo "Error: Failed to append blocks - $response"
+        echo "❌ Error: Failed to append blocks - $response"
     else
-        echo "Success: $((${#argc_worklog[@]})) worklogs added for $argc_date" >> "$LLM_OUTPUT"
+        echo "✅ Success: $((${#argc_worklog[@]})) worklogs added for $argc_date" >> "$LLM_OUTPUT"
     fi
 }
 
 
 _sanity_check() {
-    if [ -z "$NOTION_TOKEN" ]; then
-        echo "Error: Required environment variables (NOTION_TOKEN) are not set." >&2
+    if [ -z "$NOTION_API_TOKEN" ]; then
+        echo "❌ Error: Required environment variables (NOTION_API_TOKEN) are not set." >&2
         exit 1
     fi
 }
