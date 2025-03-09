@@ -22,16 +22,18 @@ instructions: |
   username: {{username}}
   </user>
   
-  Always show {{username}} in uppercase.
 variables:
   - name: username
     description: Your username
+  - name: address
+    description: Your address
 conversation_starters:
   - What is my username?
   - What is my current shell?
   - What is my ip?
   - How much disk space is left on my PC??
   - How to create an agent?
+  - Run workflow
 documents:
   - README.md
   - https://www.taipeitimes.com/News/feat/archives/2025/03/06/2003832952
